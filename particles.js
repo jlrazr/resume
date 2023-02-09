@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Particles array settings
-let numOfParticles = 1;
+let numOfParticles = 1.5;
 let particleArray = [];
 
 // Random Initial Position coords
@@ -120,7 +120,7 @@ const renderParticles = (particlesArray) => {
         ctx.moveTo(particle.x, particle.y);
         ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
         ctx.stroke();
-        ctx.lineWidth = 0.47;
+        ctx.lineWidth = 0.2;
       }
     }
 
