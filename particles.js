@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Particles array settings
-let numOfParticles = 3;
+let numOfParticles = 1;
 let particleArray = [];
 
 // Random Initial Position coords
@@ -35,7 +35,7 @@ window.addEventListener("mousemove", (event) => {
     particleArray.push(new Particle(
       particleRandX(),
       particleRandY(),
-      particleSize(10, 0.1),
+      particleSize(10, 0.3),
       particleSpeedX(-1, -0.6),
       particleSpeedY(-1, -0.6),
       particleColor
@@ -87,7 +87,7 @@ class Particle {
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
-    if (this.size > 0.6) {this.size -= 0.04} 
+    if (this.size > 0.5) {this.size -= 0.04} 
     if (this.speedX > 0.1) {this.speedX -= 0.001}
     if (this.speedY > 0.1) {this.speedY -= 0.001}
   }
@@ -103,23 +103,6 @@ class Particle {
   }
 }
 
-/*
-const generateParticles = () => {
-  for (let i = 0; i < numOfParticles; i++) {
-    particleArray.push(new Particle(
-      particleRandX(),
-      particleRandY(),
-      particleSize(8, 1),
-      particleSpeedX(-1.1, -0.8),
-      particleSpeedY(-1.1, -0.8)
-    ));
-  }
-}
-*/
-
-// Fill the array with particles
-//generateParticles();
-
 //Render Particles function
 const renderParticles = (particlesArray) => {
   // Include fix of index-- here. Change to regular for loop
@@ -127,8 +110,22 @@ const renderParticles = (particlesArray) => {
     particle.update();
     particle.draw();
 
+    for(let j = index; j < particlesArray.length; j++) {
+      const dx = particle.x - particlesArray[j].x;
+      const dy = particle.y - particlesArray[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 100 && index % 23 === 0) {
+        ctx.beginPath();
+        ctx.moveTo(particle.x, particle.y);
+        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+        ctx.stroke();
+        ctx.lineWidth = 0.47;
+      }
+    }
+
     // Check particle size and remove if size is small enough
-    if(particle.size < 1.3){
+    if(particle.size < 0.5){
       particlesArray.splice(index, 1);
     }
   })
@@ -136,12 +133,10 @@ const renderParticles = (particlesArray) => {
 
 
 const animate = () => {
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'rgba(255,255,255,0.12)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   renderParticles(particleArray);
-  // hue = Math.floor(Math.random() * 255); Random color for particle
-  hue+=0.6;
+  hue+=0.4;
   requestAnimationFrame(animate);
 }
 
