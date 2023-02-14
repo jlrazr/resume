@@ -27,14 +27,21 @@ let mouse = {
   radius: 150
 };
 
+// Handle Touch Movement
+let touch = {
+  x: null,
+  y: null,
+  radius: 150
+};
+
 window.addEventListener("mousemove", (event) => {
   const particleColor = `hsl(${hue}, 80%, 80%`;
   mouse.x = event.x;
   mouse.y = event.y;
   for (let i = 0; i < numOfParticles; i++) {
     particleArray.push(new Particle(
-      particleRandX(),
-      particleRandY(),
+      mouse.x,
+      mouse.y,
       particleSize(10, 0.3),
       particleSpeedX(-1, -0.6),
       particleSpeedY(-1, -0.6),
@@ -43,7 +50,7 @@ window.addEventListener("mousemove", (event) => {
   };
 });
 
-window.addEventListener("click", (event) =>{
+window.addEventListener("click || touchstart", (event) => {
   const particleColor = `hsl(${hue}, 60%, 50%`;
   mouse.x = event.x;
   mouse.y = event.y;
@@ -54,6 +61,24 @@ window.addEventListener("click", (event) =>{
       particleSize(28, 1),
       particleSpeedX(-1.1, -0.8),
       particleSpeedY(0.5, -0.8),
+      particleColor
+    ))
+  };
+});
+
+window.addEventListener("touchmove", (event) => {
+  console.log(event.changedTouches[0].clientX)
+  console.log(event.changedTouches[0].clientY)
+  const particleColor = `hsl(${hue}, 80%, 80%`;
+  touch.x = event.changedTouches[0].clientX;
+  touch.y = event.changedTouches[0].clientY;
+  for (let i = 0; i < numOfParticles; i++) {
+    particleArray.push(new Particle(
+      touch.x,
+      touch.y,
+      particleSize(10, 0.3),
+      particleSpeedX(-1, -0.6),
+      particleSpeedY(-1, -0.6),
       particleColor
     ))
   };
@@ -76,8 +101,8 @@ class Particle {
   constructor(xCoord, yCoord, size, speedX, speedY, color) {
     //this.x = xCoord; // Born in random X position on screen
     //this.y = yCoord; // Born in random Y position on screen
-    this.x = mouse.x;
-    this.y = mouse.y;
+    this.x = xCoord;
+    this.y = yCoord;
     this.size = size;
     this.speedX = speedX;
     this.speedY = speedY;
