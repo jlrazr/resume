@@ -4,7 +4,7 @@ let hue = 0;
 
 // Set canvas size and resize watch
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = window.innerWidth;
 
 // Particles array settings
 let numOfParticles = 1.5;
@@ -50,7 +50,7 @@ window.addEventListener("mousemove", (event) => {
   };
 });
 
-window.addEventListener("click || touchstart", (event) => {
+window.addEventListener("click", (event) => {
   const particleColor = `hsl(${hue}, 60%, 50%`;
   mouse.x = event.x;
   mouse.y = event.y;
@@ -58,7 +58,7 @@ window.addEventListener("click || touchstart", (event) => {
     particleArray.push(new Particle(
       particleRandX(),
       particleRandY(),
-      particleSize(28, 1),
+      particleSize(60, 1),
       particleSpeedX(-1.1, -0.8),
       particleSpeedY(0.5, -0.8),
       particleColor
@@ -66,9 +66,9 @@ window.addEventListener("click || touchstart", (event) => {
   };
 });
 
-window.addEventListener("touchmove", (event) => {
-  console.log(event.changedTouches[0].clientX)
-  console.log(event.changedTouches[0].clientY)
+//Still WIP
+/*window.addEventListener("touchmove", (event) => {
+  //console.log(event.changedTouches[0].clientY)
   const particleColor = `hsl(${hue}, 80%, 80%`;
   touch.x = event.changedTouches[0].clientX;
   touch.y = event.changedTouches[0].clientY;
@@ -82,7 +82,7 @@ window.addEventListener("touchmove", (event) => {
       particleColor
     ))
   };
-});
+});*/
 
 // Particle shape and draw
 const particleSize = (times, add) => {
