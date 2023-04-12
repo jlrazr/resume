@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>José Mora - Web Developer</title>
-  </head>
-  <body>
-    <canvas id="particles"></canvas>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/styles/styles.css" />
+  <title>José Mora - Web Developer</title>
+</head>
+
+<body>
+  <div class="wrapper">
     <div class="content-container">
+      <div class="image-container">
+        <h2 class="header-name">Jose Mora</h2>
+        <img src="./assets/img/picture.jpg" alt="profile-pic" class="profile-pic">
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#home" class="nav-link"><span class="nav-menu-icon"></span>Home</a></li>
+          <li><a href="#about" class="nav-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>About
+              Me</a>
+          </li>
+          <li><a href="#resume" class="nav-link"><span class="nav-menu-icon"><i
+                  class="lnr lnr-license"></i></span>Resume</a></li>
+          <li><a href="#portfolio" class="nav-link"><span class="nav-menu-icon"></span>Portfolio</a></li>
+          <li><a href="#lab" class="nav-link"><span class="nav-menu-icon"></span>Lab</a>
+          </li>
+          <li><a href="#contact" class="nav-link"><span class="nav-menu-icon"></span>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-footer">
+
+        <ul class="social">
+          <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+          <li><a href="#"><i class="fab fa-dribbble-square"></i></a></li>
+          <li><a href="#"><i class="fab fa-behance-square"></i></a></li>
+        </ul>
+
+        <div class="copy">
+          <p>2023 © 03PXLS<br>All Right Reserved</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      
+      <div class="home section active"><canvas id="particles"></canvas></div>
+      <div class="about section cut-width"><h1>ABOUT ME - Coming Soon!</h1></div>
+      <div class="resume section cut-width"><h1>RESUME - Coming Soon!</h1></div>
+      <div class="portfolio section cut-width"><h1>PORTFOLIO - Coming Soon!</h1></div>
+      <div class="lab section cut-width"><h1>LAB - Coming Soon!</h1></div>
+      <div class="contact section cut-width"><h1>CONTACT - Coming Soon!</h1></div>
+    </div>
+  </div>
+
+
+  <script type="module" src="./assets/scripts/main.js"></script>
+</body>
+
+</html>
+
+
+<!-- 
+    </div></div></div></div>
       <div class="top-bar">
         <h2>JOSE LUIS MORA</h2>
       </div>
@@ -103,9 +160,4 @@
           </div>
         </div>
       </main>
-    </div>
-
-    <script type="application/javascript" src="./script.js"></script>
-    <script type="application/javascript" src="./particles.js"></script>
-  </body>
-</html>
+ -->
