@@ -159,7 +159,7 @@ const particles = () => {
 
 
   const animate = () => {
-    ctx.fillStyle = 'rgba(255,255,255,0.12)';
+    ctx.fillStyle = 'rgba(27, 27, 35, 0.4)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     renderParticles(particleArray);
     hue += 0.4;

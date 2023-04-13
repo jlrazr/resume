@@ -1,0 +1,22 @@
+.experience-education-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-item ul {
+  list-style: disc;
+  padding-left: 25px;
+}
+
+.experience-col, .education-col {
+  width: 45%
+}
+
+.experience-item {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #71747d;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
