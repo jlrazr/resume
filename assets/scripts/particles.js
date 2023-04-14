@@ -5,7 +5,7 @@ const particles = () => {
 
   // Set canvas size and resize watch
   canvas.width = window.innerWidth;
-  canvas.height = window.innerWidth;
+  canvas.height = window.innerHeight;
 
   // Particles array settings
   let numOfParticles = 1.5;
